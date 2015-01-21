@@ -26,19 +26,20 @@ class CI_menu extends CI_Model {
 	function menu(){
 
 		$menu_common = array(
-			'Home' => site_url()//,
+			'Home' => site_url(),
+			'Dashboard' => site_url('/logged/')
 			//'People' => '#',
 			//'News' => '#'
 		);
 
 		$menu_unlogged = array(
-			'Register' => site_url().'/register/',
-			'Login' => site_url().'/login/'
+			'Register' => site_url('/register/'),
+			'Login' => site_url('/login/')
 		);
 
 		$menu_logged = array(
-			'Profile' => site_url().'/profile/',
-			'Logout' => site_url().'/login/logout/'
+			'Profile' => site_url('/profile/'),
+			'Logout' => site_url('/login/logout/')
 		);
 
 		$menu = array_merge($menu_common,($this->CI_auth->check_logged() == true)?$menu_logged:$menu_unlogged);

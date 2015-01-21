@@ -4,26 +4,26 @@
 	<div class="row">
 		<div class="col-md-8">
 
-			<form class="form-horizontal" action="<?php echo site_url('/login/');?>" method="post" accept-charset="utf-8">
+			<form class="form-horizontal" data-toggle="validator" role="form" action="<?php echo site_url('/login/');?>" method="post" accept-charset="utf-8">
 
 				<div class="form-group">
 					<label for="input1" class="col-sm-3 control-label">Username or Email:</label>
 					<div class="col-sm-9">
-						<input class="form-control" id="input1" type="text" name="username" placeholder="Username or Email" value="">
+						<input class="form-control" id="input1" type="text" name="username" placeholder="Username or Email" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="input2" class="col-sm-3 control-label">Password:</label>
 					<div class="col-sm-9">
-						<input class="form-control" id="input2" type="password" name="password" placeholder="Password" value="">
+						<input class="form-control" id="input2" type="password" name="password" placeholder="Password" data-minlength="6" required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="input10" class="col-sm-3 control-label"></label>
 					<div class="col-sm-9">
-						<input class="btn btn-success" type="submit" value="Log In" name="submit_login">
+						<input class="btn btn-primary" type="submit" value="Log In" name="submit_login">
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="#">Lost your password ?</a>
 					</div>
@@ -34,7 +34,6 @@
 					<div class="error col-sm-9">
 						<p><?php echo $info; ?></p>
 						<p><?php echo validation_errors(); ?></p>
-						
 					</div>
 				</div>
 

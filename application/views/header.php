@@ -8,6 +8,7 @@
 <!-- Bootstrap -->
 <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
 <link href="<?php echo base_url('assets/css/dashboard.css');?>" rel="stylesheet">
+<link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 <!-- Bootstrap -->
@@ -41,7 +42,6 @@ footer .container{background:#fff;padding-top:10px;}
 						echo '<li><a href="' .$link_url. '">' .$link_text. '</a></li>';
 					}
 				?>
-				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

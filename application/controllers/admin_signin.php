@@ -1,21 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Admin_signin extends CI_Controller {
 	
 	function __construct(){
+		
 		parent::__construct();
 		$this->load->library(array('session', 'form_validation'));
-		$this->load->model(array('CI_auth', 'CI_menu'));
+		$this->load->model(array('Auth', 'Adm_topnav_mdl'));
 		$this->load->helper(array('html','form', 'url'));
+	
 	}
 	
 	function index(){
 		
-		if($this->CI_auth->check_logged() === true) redirect( site_url('/logged/') );
-
+		if($this->Auth->check_logged() === TRUE) redirect( site_url(ADMINPATH . 'dashboard') );
+		
 		$data = Array(
-			'title' => 'Login Page',		//页面title
-			'menu' =>  $this->CI_menu->menu(),	//顶部菜单
+			'title' => 'Login Page',
+			'menu' =>  $this->Adm_topnav_mdl->menu(),
 			'info' => ''
 		);
 		
@@ -28,9 +30,9 @@ class Login extends CI_Controller {
 				
 				$login_array = array($this->input->post('username'), $this->input->post('password'));
 				
-				if($this->CI_auth->process_login($login_array)){        //login successfull
+				if($this->Auth->process_login($login_array)){
 
-					redirect(site_url('/logged/'));
+					redirect(site_url(ADMINPATH . 'dashboard'));
 					
 				}else{
 					
@@ -41,15 +43,15 @@ class Login extends CI_Controller {
 
 		}
 
-		$this->load->view('login/login.php', $data);
-
+		$this->load->view('admin/signin.php', $data);
+	
 	}
 
-	function logout(){
+	function signout(){
 		
 		$this->session->sess_destroy();
 	
-		redirect(site_url().'/login/');
+		redirect(site_url(ADMIN_SIGNIN));
 	
 	}
 }

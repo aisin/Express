@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-8">
 
-			<form class="form-horizontal" data-toggle="validator" role="form" action="<?php echo site_url('/register/');?>" method="post" accept-charset="utf-8">
+			<form class="form-horizontal" data-toggle="validator" role="form" action="<?php echo site_url('signup');?>" method="post" accept-charset="utf-8">
 
 				<div class="form-group">
 					<label for="input1" class="col-sm-3 control-label">Your Name:</label>

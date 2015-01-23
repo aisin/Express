@@ -8,7 +8,7 @@ class W extends CI_Controller {
 
 		$this->load->library(array('session'));
 
-		$this->load->model(array('CI_auth', 'CI_menu'));
+		$this->load->model(array('Auth', 'Adm_topnav_mdl'));
 
 	}
 
@@ -16,7 +16,7 @@ class W extends CI_Controller {
 
 		$data = array(
 
-			'menu_top' => $this->CI_menu->menu_top(),
+			'menu_top' => $this->Adm_topnav_mdl->menu(),
 
 		);
 

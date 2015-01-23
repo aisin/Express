@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class CI_auth extends CI_Model {
+class Auth extends CI_Model {
 
 	function __construct(){
 
@@ -8,7 +8,7 @@ class CI_auth extends CI_Model {
 		$this->load->library('session');
 		$this->load->database();
 		$this->load->helper('url');
-		$this->load->model(array('CI_encrypt'));
+		$this->load->model(array('Encrypt'));
 		
 	}
 
@@ -31,7 +31,7 @@ class CI_auth extends CI_Model {
 			$user_pass = $row->password;
 			$user_salt = $row->salt;
 
-			if($this->CI_encrypt->encryptUserPwd( $password,$user_salt) === $user_pass){
+			if($this->Encrypt->encryptUserPwd( $password,$user_salt) === $user_pass){
 				
 				$this->session->set_userdata('logged_user', $username);
 				return true;

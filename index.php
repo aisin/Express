@@ -192,6 +192,14 @@ if (defined('ENVIRONMENT'))
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
 
+	//定义 admin 登陆入口（控制器）和 admin 目录
+
+	define('ADMIN_SIGNIN', 'admin_signin');
+
+	define('ADMINPATH', 'admin/');
+	
+
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

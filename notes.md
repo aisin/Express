@@ -1,5 +1,29 @@
+Controller
+|
+|--admin
+|    |
+|    \--dashboard.php
+|    |
+|    \--profile.php
+|
+\--admin.php(后台登陆)
+|
+\--login.php(前台)
 
 
+后台：
+
+--入口：http://localhost/ci_login/index.php/admin
+
+--仪表盘：http://localhost/ci_login/index.php/admin      = Dashboard （）
+
+
+
+################################################
+##
+## Database
+##
+################################################
 
 #创建 users 表
 

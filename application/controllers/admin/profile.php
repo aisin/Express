@@ -5,17 +5,17 @@ class Profile extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->library(array('session', 'form_validation'));
-		$this->load->model(array('CI_auth', 'CI_menu', 'CI_profile'));
+		$this->load->model(array('Auth', 'Adm_topnav_mdl', 'Profile_mdl'));
 		$this->load->helper(array('html','form', 'url'));
 	}
 
 	function index() {
 
-		if($this->CI_auth->check_logged() === FALSE) redirect(site_url('/login/'));
+		if($this->Auth->check_logged()===FALSE) redirect(site_url(ADMIN_SIGNIN));
 
 		$data = Array(
 			'title' => 'Profile Page',
-			'menu' =>  $this->CI_menu->menu(),
+			'menu' =>  $this->Adm_topnav_mdl->menu(),
 			'info' => ''
 		);
 
@@ -30,7 +30,6 @@ class Profile extends CI_Controller {
 
 			if($this->form_validation->run() === TRUE){
 
-				//$userid = $this->input->post('userid');
 				$name = $this->input->post('name');
 				$username = $this->input->post('username');
 				$country = $this->input->post('country');
@@ -45,7 +44,7 @@ class Profile extends CI_Controller {
 				);
 
 				//更新数据
-				$this->CI_profile->update_data($username, $upd_data) ? 
+				$this->Profile_mdl->update_data($username, $upd_data) ? 
 				$data['info'] = '更新成功' :
 				$data['info'] = '更新失败' ;
 
@@ -55,12 +54,12 @@ class Profile extends CI_Controller {
 		//查询 seesion 返回当前用户信息
 		$username = $this->session->userdata('logged_user');
 
-		$user_data = $this->CI_profile->get_data($username);
+		$user_data = $this->Profile_mdl->get_data($username);
 
 		if($user_data) $data['user'] = $user_data;
 
 		//页面初始化
-		$this->load->view('profile/profile.php', $data);
+		$this->load->view('admin/profile.php', $data);
 		
 	}
 }

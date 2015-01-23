@@ -5,14 +5,14 @@ class Panel extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper(array('url'));
-		$this->load->model(array('CI_menu'));
+		$this->load->model(array('Adm_topnav_mdl'));
 	}
 
 	function index() {
 
 		$data = Array(
 			'title' => 'Panel Page',
-			'menu' =>  $this->CI_menu->menu()
+			'menu' =>  $this->Adm_topnav_mdl->menu()
 		);
 
 		$this->load->view('panel_v', $data);

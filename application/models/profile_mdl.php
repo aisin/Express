@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class CI_profile extends CI_Model {
+class Profile_mdl extends CI_Model {
 
 	function __construct(){
 
@@ -8,7 +8,7 @@ class CI_profile extends CI_Model {
 		$this->load->library('session');
 		$this->load->database();
 		$this->load->helper(array('url',  'form'));
-		//$this->load->model(array('CI_encrypt'));
+		//$this->load->model(array('Encrypt'));
 		
 	}
 

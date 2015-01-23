@@ -1,25 +1,25 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Register extends CI_Controller {
+class Signup extends CI_Controller {
 	
 	function __construct(){
 		
 		parent::__construct();
 		$this->load->library(array('form_validation'));
-		//$this->load->model(array(/*'CI_captcha',*/ 'CI_menu', 'CI_encrypt'));
-		$this->load->model(array('CI_menu', 'CI_encrypt', 'Register_mdl'));
+		$this->load->model(array('Adm_topnav_mdl', 'Auth', 'Encrypt', 'Register_mdl'));
 		$this->load->helper(array('form', 'url'));
-		//$this->load->database();
 		
 	}
 
 	function index(){
 		
-		if($this->CI_auth->check_logged() === true) redirect(site_url().'/logged/');
+		//测试时临时指向 admin 登陆后入口，生产项目须指向用户登陆后入口（前台）
+
+		if($this->Auth->check_logged()===TRUE) redirect(site_url(ADMINPATH . 'dashboard'));
 
 		$data = Array(
 			'title' => 'CI Registration',
-			'menu' =>  $this->CI_menu->menu(),
+			'menu' =>  $this->Adm_topnav_mdl->menu(),
 			'info' => ''
 		);
 		
@@ -48,12 +48,12 @@ class Register extends CI_Controller {
 
 				if ($this->Register_mdl->chk_exist($username , $email))
 
-					$data['info'] = 'username or email address you entered is already used by another, please change.';
+					$data['info'] = 'Username or Email address you entered is already used by another, please change.';
 
 				else{
 					
-					$rand_salt = $this->CI_encrypt->genRndSalt();
-					$encrypt_pass = $this->CI_encrypt->encryptUserPwd( $password, $rand_salt);
+					$rand_salt = $this->Encrypt->genRndSalt();
+					$encrypt_pass = $this->Encrypt->encryptUserPwd( $password, $rand_salt);
 					
 					$input_data = array(
 						'name' => $name,
@@ -67,9 +67,16 @@ class Register extends CI_Controller {
 					);
 
 					if ($this->Register_mdl->add_user($input_data))
+					{
+						//$data['info'] = "Registration success, please login.";
+						if($this->Auth->process_login(array($username, $password)))
+						{
 
-						$data['info'] = "Registration success, please login.";
+							redirect(site_url(ADMINPATH . 'dashboard'));
+							
+						}
 
+					}
 					else
 
 						$data['info'] = "Error on query";
@@ -77,7 +84,7 @@ class Register extends CI_Controller {
 			}
 		}
 	
-		$this->load->view('register/register.php', $data);
+		$this->load->view('signup.php', $data);
 	
 	}
 }

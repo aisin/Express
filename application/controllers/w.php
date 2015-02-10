@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+// This is a demo Class
+
 class W extends CI_Controller {
 	
 	function __construct() {

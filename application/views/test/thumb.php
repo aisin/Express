@@ -1,0 +1,1 @@
+<?=image_thumb('assets/images/picture-1/picture-1.jpg', 50, 50)?>

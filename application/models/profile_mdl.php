@@ -14,7 +14,7 @@ class Profile_mdl extends CI_Model {
 
 	function get_data( $username ) {
 
-		$query = $this->db->query("SELECT name, email, username, country, address, gender FROM `users` WHERE `username`= '". $username . "'");
+		$query = $this->db->query("SELECT name, email, username, country, address, gender, avatar FROM `users` WHERE `username`= '". $username . "'");
 
 		return $query->num_rows > 0 ? $query->row_array() : FALSE;
 
@@ -29,4 +29,13 @@ class Profile_mdl extends CI_Model {
   		return $this->db->affected_rows() > 0;
 
 	}
+
+	/*
+
+	function save_avatar($username, $ava_img){
+
+		$query = $this->db->query("UPDATE `users`SET avatar = '". $ava_img . "' WHERE username = '". $username ."'");
+
+	}
+	*/
 }

@@ -196,7 +196,14 @@ if (defined('ENVIRONMENT'))
 
 	define('ADMIN_SIGNIN', 'admin_signin');
 
-	define('ADMINPATH', 'admin/');
+	define('ADMINPATH', 'admin/'); //--application/controller/admin
+	
+	// avatar 文件夹目录
+	define('AVATAR_PATH', 'avatar'.'/');
+	
+	//
+	define('ASSETS_PATH', 'assets/');
+	
 	
 
 

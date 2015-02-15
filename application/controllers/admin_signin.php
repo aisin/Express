@@ -5,7 +5,7 @@ class Admin_signin extends CI_Controller {
 	function __construct(){
 		
 		parent::__construct();
-		$this->load->library(array('session', 'form_validation'));
+		$this->load->library(array('session', 'form_validation', 'Common'));
 		$this->load->model(array('Auth', 'Adm_topnav_mdl'));
 		$this->load->helper(array('html','form', 'url'));
 	

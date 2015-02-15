@@ -6,7 +6,7 @@ class Signup extends CI_Controller {
 		
 		parent::__construct();
 		$this->load->library(array('form_validation'));
-		$this->load->model(array('Adm_topnav_mdl', 'Auth', 'Encrypt', 'Register_mdl'));
+		$this->load->model(array('Adm_topnav_mdl', 'Auth', 'Encrypt', 'Signup_mdl'));
 		$this->load->helper(array('form', 'url'));
 		
 	}
@@ -46,7 +46,7 @@ class Signup extends CI_Controller {
 				$gender = $this->input->post('gender');
 				$terms = $this->input->post('terms');
 
-				if ($this->Register_mdl->chk_exist($username , $email))
+				if ($this->Signup_mdl->chk_exist($username , $email))
 
 					$data['info'] = 'Username or Email address you entered is already used by another, please change.';
 
@@ -66,7 +66,7 @@ class Signup extends CI_Controller {
 						'salt' => $rand_salt
 					);
 
-					if ($this->Register_mdl->add_user($input_data))
+					if ($this->Signup_mdl->add_user($input_data))
 					{
 						//$data['info'] = "Registration success, please login.";
 						if($this->Auth->process_login(array($username, $password)))

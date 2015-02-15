@@ -6,30 +6,8 @@
 		<p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 		<p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
 		
-		<?php echo ENVIRONMENT?><br>
-		<?php echo EXT?><br>
-		<?php echo FCPATH?><br>
-		<?php echo SELF?><br>
-		<?php echo BASEPATH?><br>
-		<?php echo APPPATH?><br>
-		<?php echo CI_VERSION?><br>
-		<?php echo FILE_READ_MODE?><br>
-		<?php echo FILE_WRITE_MODE?><br>
-		<?php echo DIR_READ_MODE?><br>
-		<?php echo DIR_WRITE_MODE?><br>
-		<?php echo FOPEN_READ?><br>
+		<?php echo $cropresult;?><br>
 		
-		<?php echo FOPEN_READ_WRITE?><br>
-		<?php echo FOPEN_WRITE_CREATE_DESTRUCTIVE?><br>
-		<?php echo FOPEN_READ_WRITE_CREATE_DESTRUCTIVE?><br>
-		<?php echo FOPEN_WRITE_CREATE?><br>
-		
-		<?php echo FOPEN_READ_WRITE_CREATE?><br>
-		<?php echo FOPEN_WRITE_CREATE_STRICT?><br>
-		<?php echo FOPEN_READ_WRITE_CREATE_STRICT?><br>
-		<?php echo AVATAR_PATH?><br>
-
-		<?php echo chr(mt_rand(97, 122));?>
 		
 		
 		

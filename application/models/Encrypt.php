@@ -37,7 +37,9 @@ class Encrypt extends CI_Model {
 	// Encrypt User Password
 	function encryptUserPwd($pwd, $salt) {
 		
-		return sha1(md5($pwd) . $salt);
+		//return sha1(md5($pwd) . $salt);
+
+		return Common::do_hash($pwd, $salt);
 		
 	}
 	
